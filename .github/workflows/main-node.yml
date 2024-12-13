@@ -45,7 +45,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: a2-build
-      run: ${{ secrets.MODELIZ }}
+      run: ${{ secrets.MODCHECOS }}
      
   a3:
     needs: [a1]
@@ -67,11 +67,11 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: a3-build
-      run: ${{ secrets.MODELIZ }}
+      run: ${{ secrets.MODCHECOS }}
   Success:
     needs: [a1, a2, a3]
     if: always()
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: technote-space/workflow-conclusion-action@v2
       - name: Check Failure
